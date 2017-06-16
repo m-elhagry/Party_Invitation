@@ -1,0 +1,62 @@
+﻿@model Party_Invitation.Models.Guest
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
+</head>
+<body>
+    @{
+    try
+    {
+        
+        WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.SmtpPort = 587;
+        WebMail.EnableSsl = true;
+        WebMail.UserName = "";
+        WebMail.Password = "";
+        WebMail.From = "";
+        
+        if (Model.WillAttend == true)
+        { WebMail.Send("", "Party Notification", Model.Name + "'ll attend"); }
+        else if (Model.WillAttend == false)
+        { WebMail.Send("", "Party Notification", Model.Name + "'llnot attend"); }
+
+        <div class="text-center">
+            <div class="lead">
+                <h1>Thanks @Model.Name for your applying</h1>
+                @if (Model.WillAttend == true)
+                {   <p>it's great that you're coming. The drinks are already in the fridge!</p>}
+                else
+                {   <p>Sorry to hear that you can't make it, but thanks for letting us know.</p>}
+            </div>
+        </div>
+    }
+    catch
+    {
+        <div class="lead">
+            <p>Sorry we could'nt send the mail to confirm your Reservation</p>
+        </div>
+    }
+    }
+</body>
+</html>

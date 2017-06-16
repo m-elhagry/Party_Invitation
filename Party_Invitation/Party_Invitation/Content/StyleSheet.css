@@ -1,0 +1,23 @@
+﻿body {
+}
+.validation-summary-errors{
+    color:red;
+    list-style-type:none;
+}
+.validation-summary-valid{
+    display:none;
+}
+.field-validation-error{
+color:red
+}
+.field-validation-valid{
+    display:none;
+}
+.input-validation-error{
+    background-color:#eed3d7;
+    border-color:#eed3d7;
+    border-style:dashed;
+}
+.input-validation-valid{
+    display:none;
+}

@@ -8,15 +8,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    
+    <title>Welcome</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <div class="text-center">
         <h2>@ViewBag.Greating from the view</h2>
         we're going to have an exciting party.<br>
         (To do: sell it brtter add pictures or something)
-        <div>
+        <div class="btn btn-success" style="color:white; text-decoration:none;">
             @Html.ActionLink("Reservation", "Reservation")
         </div>
     </div>
